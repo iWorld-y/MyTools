@@ -138,3 +138,4 @@ P="${prefix} ${tm} ${user}@${host}:${dir}${git} $(color bold white "" \>) "
 
 # 导出为 PS1 环境变量，使其生效
 export PS1=$P
+bind "set completion-ignore-case on"
