@@ -1,6 +1,17 @@
 alias ll='ls -alFh'
 alias lt='ll -t'
-alias myact='mamba activate'
+
+if command -v mamba >/dev/null 2>&1 ; then
+  ALIAS='myact="mamba activate"'
+else
+  # Check if conda is installed
+  if command -v conda >/dev/null 2>&1 ; then
+    ALIAS='myact="conda activate"'
+  else
+    echo "Neither mamba nor conda found"
+    exit 1
+  fi
+fi
 
 function mygit() {
     # 检查是否提供了提交信息
